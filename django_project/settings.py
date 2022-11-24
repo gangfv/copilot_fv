@@ -25,12 +25,15 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     # Third-party
+    'rest_framework',
+    'drf_yasg',
     "allauth",
     "allauth.account",
     "crispy_forms",
     # Local
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
+    "api.apps.ApiConfig",
 ]
 
 # MIDDLEWARE
