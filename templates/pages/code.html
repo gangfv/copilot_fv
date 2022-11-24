@@ -10,12 +10,25 @@
 {% endblock header_text %}
 
 {% block content %}
-    <section class="section-coding">
+    <section class="section-coding" id="app">
         <div class="codespace">
-            <div class="codespace__desc">
-                <textarea></textarea>
+            <form class="codespace__desc">
+                <textarea v-model="description"></textarea>
+                <button class="code-btn">НАКОДИТЬ</button>
+            </form>
+
+            <h2 class="title">Ваш код:</h2>
+            <div class="codespace__result">
+                <div class="numbers">
+                    <p v-for="num of numbers" class="numbers__item">[[num]]</p>
+                </div>
+                <textarea class="code"  :value="description"></textarea>
             </div>
         </div>
     </section>
 
 {% endblock content %}
+
+{% block javascript %}
+    <script src="{% static 'js/codespace.js' %}"></script>
+{% endblock javascript %}
