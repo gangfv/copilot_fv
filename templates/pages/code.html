@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Конструктор{% endblock title %}
+
+{% block header_text %}
+    <p class="header_text">
+        Напишите описание кода, котрый хотите получить !
+    </p>
+{% endblock header_text %}
+
+{% block content %}
+    <section class="section-coding">
+        <div class="codespace">
+            <div class="codespace__desc">
+                <textarea></textarea>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

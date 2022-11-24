@@ -4,5 +4,28 @@
 {% block title %}Главная{% endblock title %}
 
 {% block content %}
+    <section class="section" id="first">
+        <div class="container">
+            <article class="article">
+                <h1 class="title">FutureCoder</h1>
+                <p class="text">
+                    Искуственный программист FutureCode! Нейросеть, которая будет писать код за вас. Всё что вам нужно
+                    написать или сказать описание жеоаемого скрипта.
+                </p>
+                <a href="{% url 'code' %}" class="button button--blink">КОДИТЬ</a>
+            </article>
 
+            <div class="decoration">
+                <img src="{% static 'images/laptop.png' %}" alt="Логотип">
+            </div>
+        </div>
+    </section>
+    <section class="section section--vert bottom-shadow">
+        <h2 class="big-title">Как это работает?</h2>
+        <div class="example">
+            <img src="{% static 'images/example.png' %}" alt="Пример">
+        </div>
+        <a href="{% url 'code' %}" class="button button--blink button--simple">КОДИТЬ</a>
+
+    </section>
 {% endblock content %}

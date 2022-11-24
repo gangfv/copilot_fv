@@ -6,5 +6,7 @@ whitenoise
 ######################
 gunicorn
 django-environ
+djangorestframework
+drf_yasg
 
 
