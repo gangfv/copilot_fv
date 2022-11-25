@@ -81,7 +81,7 @@ const Code = {
     },
     computed: {},
     watch: {
-        description(value) {
+        code(value) {
             let newNumbers = [1]
             for (let i = 1; i < value.split('\n').length; i++) {
                 newNumbers.push(i + 1)
