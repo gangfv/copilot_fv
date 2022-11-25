@@ -17,16 +17,16 @@
 
 
     {% block css %}
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
 </head>
 
 <body>
 <header class="header">
     <div class="container--header">
-        <div class="logo">
+        <a href="{% url 'home' %}" class="logo">
             <img src="{% static 'images/logo.png' %}" alt="Логотип">
-        </div>
+        </a>
 
         <div class="">
             {% block header_text %}
@@ -44,26 +44,29 @@
 </footer>
 
 
+<script src="{% static 'js/Axios.js' %}"></script>
+<script src="{% static 'js/Cookies.js' %}"></script>
+
 
 {% block javascript %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="{% static 'js/net.js' %}"></script>
-    <script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="{% static 'js/net.js' %}"></script>
+<script>
     VANTA.NET({
-      el: "#first",
-      mouseControls: false,
-      touchControls: false,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: '#2970dc',
-      backgroundColor: '#001e36',
-      points: 14.00,
-      showDots: false
+        el: "#first",
+        mouseControls: false,
+        touchControls: false,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: '#2970dc',
+        backgroundColor: '#001e36',
+        points: 14.00,
+        showDots: false
     })
-    </script>
+</script>
 
 {% endblock javascript %}
 

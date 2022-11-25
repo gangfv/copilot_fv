@@ -83,18 +83,27 @@ button {
 }
 
 .logo {
+    display: inline-block;
     width: 50px;
     height: 50px;
 
     z-index: 2;
 }
 
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
 @media (min-width: 600px) {
     .logo {
         width: 70px;
         height: 70px;
+    }
 
-        z-index: 2;
+    .logo img {
+        width: 70px;
+        height: 70px;
     }
 }
 
@@ -382,9 +391,18 @@ button {
     flex-direction: column;
 }
 
-.header_text {
-    font-size: 28px;
+.header__text {
+    font-size: 18px;
     font-weight: 600;
+
+    margin-left: 40px;
+}
+
+
+@media (min-width: 600px) {
+    .header__text {
+        font-size: 28px;
+    }
 }
 
 .codespace__desc {
@@ -395,6 +413,14 @@ button {
     border-radius: 20px;
 
     display: flex;
+    flex-direction: column;
+
+}
+
+@media (min-width: 600px) {
+    .codespace__desc {
+        flex-direction: row;
+    }
 }
 
 .codespace__desc textarea {
@@ -418,10 +444,11 @@ button {
     display: inline-block;
     box-sizing: border-box;
     flex-grow: 0;
-    height: 120px;
-    width: 200px;
+    height: 50px;
+    width: 100%;
 
-    margin-left: 20px;
+    margin-left: 0;
+    margin-top: 20px;
     border-radius: 20px;
 
     background-color: #2970dc;
@@ -431,15 +458,30 @@ button {
     letter-spacing: 2px;
 }
 
+@media (min-width: 600px) {
+    .code-btn {
+        height: 120px;
+        width: 200px;
+
+        margin-top: 0;
+        margin-left: 20px;
+    }
+}
+
 .codespace__result {
     display: flex;
 
-    margin-top: 30px;
+    margin-top: 10px;
     width: 100%;
 
-    font-size: 25px;
+    font-size: 18px;
+}
 
-
+@media (min-width: 600px) {
+    .codespace__result {
+        margin-top: 30px;
+        font-size: 25px;
+    }
 }
 
 .numbers {
@@ -448,7 +490,7 @@ button {
 
 
     font-size: 1em;
-    width: 1.2em;
+    width: 1.8em;
 }
 
 .numbers__item {
@@ -470,6 +512,12 @@ button {
 
     flex-grow: 1;
     padding-left: 10px;
+}
+
+@media (max-width: 600px) {
+    .title--code {
+        font-size: 28px;
+    }
 }
 
 

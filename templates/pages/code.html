@@ -4,7 +4,7 @@
 {% block title %}Конструктор{% endblock title %}
 
 {% block header_text %}
-    <p class="header_text">
+    <p class="header__text">
         Напишите описание кода, котрый хотите получить !
     </p>
 {% endblock header_text %}
@@ -14,16 +14,17 @@
         <div class="codespace">
             <form class="codespace__desc">
                 <textarea v-model="description"></textarea>
-                <button class="code-btn">НАКОДИТЬ</button>
+                <button class="code-btn" @click="submitDescription">НАКОДИТЬ</button>
             </form>
 
-            <h2 class="title">Ваш код:</h2>
+            <h2 class="title title--code">Ваш код:</h2>
             <div class="codespace__result">
                 <div class="numbers">
                     <p v-for="num of numbers" class="numbers__item">[[num]]</p>
                 </div>
-                <textarea class="code"  :value="description"></textarea>
+                <textarea class="code" :rows="numbers.length"  :value="description"></textarea>
             </div>
+
         </div>
     </section>
 
