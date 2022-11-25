@@ -9,13 +9,18 @@ const instance = axios.create({
 console.log(Cookies.getCookies('csrftoken'))
 
 
+function clearCode(code) {
+    return code.split('\n').filter(string => !string.includes('#')).join('\n')
+}
+
+
 const Code = {
     delimiters: ['[[', ']]'],
     data() {
         return {
             language: '',
             description: '',
-            numbers: [1],
+            numbers: [1, 2],
             code: '',
 
             isLoading: false,
@@ -56,7 +61,7 @@ const Code = {
                         newCode = data.textarea_new
                         console.log('Преобразованный код', newCode)
 
-                        this.setCode(newCode)
+                        this.setCode(clearCode(newCode))
 
                         clearInterval(checkId)
                         this.isLoading = false
