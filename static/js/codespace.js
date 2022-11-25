@@ -10,7 +10,9 @@ console.log(Cookies.getCookies('csrftoken'))
 
 
 function clearCode(code) {
-    return code.split('\n').filter(string => !string.includes('#')).join('\n')
+    const cleanPy = code.split('\n').filter(string => !string.includes('#')).join('\n')
+    const cleanC = cleanPy.split('\n').filter(string => !string.includes('//')).join('\n')
+    return cleanC
 }
 
 
@@ -20,7 +22,7 @@ const Code = {
         return {
             language: '',
             description: '',
-            numbers: [1, 2],
+            numbers: [1],
             code: '',
 
             isLoading: false,
