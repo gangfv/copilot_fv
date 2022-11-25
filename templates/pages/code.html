@@ -12,17 +12,24 @@
 {% block content %}
     <section class="section-coding" id="app">
         <div class="codespace">
-            <form class="codespace__desc">
+            <div class="codespace__desc">
                 <textarea v-model="description"></textarea>
-                <button class="code-btn" @click="submitDescription">НАКОДИТЬ</button>
-            </form>
+                <div v-if="!isLoading" class="code-btn-area">
+                    <button :disabled="!description" class="code-btn" @click="submitDescription">НАКОДИТЬ</button>
+                </div>
+                <div v-else class="code-btn-area">
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                    <p class="lil-text">[[loadingTime]] сек. осталось</p>
+                </div>
+
+            </div>
 
             <h2 class="title title--code">Ваш код:</h2>
             <div class="codespace__result">
                 <div class="numbers">
                     <p v-for="num of numbers" class="numbers__item">[[num]]</p>
                 </div>
-                <textarea class="code" :rows="numbers.length"  :value="description"></textarea>
+                <textarea class="code" :rows="numbers.length"  :value="code"></textarea>
             </div>
 
         </div>
