@@ -13,9 +13,43 @@
     <section class="section-coding" id="app">
         <div class="codespace">
             <div class="codespace__desc">
-                <textarea v-model="description"></textarea>
+                <div class="codespace__field">
+                    <textarea v-model="description"></textarea>
+                    <div class="row">
+                        <div class="lang-field">
+                            <input v-model="language" value="Python"
+                                   name="lang"
+                                   type="radio"
+                                   id="python">
+                            <label for="python">
+                                Python
+                            </label>
+                        </div>
+
+                        <div class="lang-field">
+                            <input v-model="language" value="Kotlin"
+                                   name="lang"
+                                   type="radio"
+                                   id="kotlin">
+                            <label for="kotlin">
+                                Kotlin
+                            </label>
+                        </div>
+
+                        <div class="lang-field">
+                            <input v-model="language" value="JavaScript"
+                                   name="lang"
+                                   type="radio"
+                                   id="javaScript">
+                            <label for="javaScript">
+                                JavaScript
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
                 <div v-if="!isLoading" class="code-btn-area">
-                    <button :disabled="!description" class="code-btn" @click="submitDescription">НАКОДИТЬ</button>
+                    <button :disabled="!description || !language" class="code-btn" @click="submitDescription">НАКОДИТЬ</button>
                 </div>
                 <div v-else class="code-btn-area">
                     <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>

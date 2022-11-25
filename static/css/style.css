@@ -428,10 +428,16 @@ button {
     }
 }
 
+
+.codespace__field {
+    flex-grow: 2;
+}
+
+
 .codespace__desc textarea {
     box-sizing: border-box;
-    flex-grow: 2;
     height: 120px;
+    width: 100%;
     border-radius: 20px;
 
     padding: 20px;
@@ -444,6 +450,60 @@ button {
 
     font-size: 20px;
 }
+
+.codespace__field {
+    flex-grow: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    margin-top: 20px;
+    width: 90%;
+    height: max-content;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lang-field {
+
+}
+.lang-field label {
+    display: inline-block;
+    box-sizing: border-box;
+
+
+    padding: 5px;
+    border: 3px solid #fff;
+    border-radius: 20px;
+
+    font-weight: 700;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+@media (min-width: 800px) {
+    .lang-field label {
+        padding: 10px 15px;
+        font-size: 24px;
+    }
+}
+
+.lang-field input {
+    display: none;
+}
+
+.lang-field input:checked ~ label {
+    color: #44bd32;
+    border: 3px solid #44bd32;
+    border-radius: 20px;
+}
+
 
 .code-btn {
     display: inline-block;
@@ -474,11 +534,18 @@ button {
 
 .code-btn-area {
     min-width: 150px;
-    margin-left: 20px;
+    margin-left: 0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media (min-width: 600px) {
+    .code-btn-area {
+        margin-left: 20px;
+
+    }
 }
 
 .codespace__result {

@@ -13,6 +13,7 @@ const Code = {
     delimiters: ['[[', ']]'],
     data() {
         return {
+            language: '',
             description: '',
             numbers: [1],
             code: '',
@@ -29,14 +30,15 @@ const Code = {
             // this.startLoader()
             console.log('Отправленное описание', this.description)
 
-            this.loadCode(this.description)
+            this.loadCode(this.description, this.language)
 
             //
             this.description = ''
         },
-        async loadCode(description) {
+        async loadCode(description, language) {
             let newId = ''
             await instance.post('copilot/', {
+                "progr_lan": language,
                 "textarea_old": description,
                 "textarea_new": ""
             }).then(({data}) => {
@@ -53,6 +55,7 @@ const Code = {
                     if(data.textarea_new) {
                         newCode = data.textarea_new
                         console.log('Преобразованный код', newCode)
+
                         this.setCode(newCode)
 
                         clearInterval(checkId)
