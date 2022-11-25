@@ -26,7 +26,7 @@ const Code = {
             e.preventDefault()
             //
             this.isLoading = true
-            this.startLoader()
+            // this.startLoader()
             console.log('Отправленное описание', this.description)
 
             this.loadCode(this.description)
@@ -47,19 +47,21 @@ const Code = {
 
             let newCode = ''
 
-            setTimeout(() => {
+            let checkId = setInterval(() => {
                 console.log('итерация')
                 instance.get(`copilot/${newId}/`).then(({data}) => {
-                    newCode = data.textarea_new
-                    console.log('Преобразованный код', newCode)
-                    this.setCode(newCode)
+                    if(data.textarea_new) {
+                        newCode = data.textarea_new
+                        console.log('Преобразованный код', newCode)
+                        this.setCode(newCode)
 
-                    this.isLoading = false
+                        clearInterval(checkId)
+                        this.isLoading = false
+                    }
 
                 }, () => {
-                    this.isLoading = false
                 })
-            }, 15000)
+            }, 10000)
 
             return
 
