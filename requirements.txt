@@ -8,5 +8,7 @@ gunicorn
 django-environ
 djangorestframework
 drf_yasg
-
+tensorflow
+scikit-learn
+pandas
 
